@@ -5,7 +5,7 @@ function setPixel (pixel) {
 
     // clearPixelContainer ();
 
-    for (let i = 0; i < pixel; i++) {
+    for (let i = 0; i < pixel * pixel; i++) {
         let pixel = document.createElement("div");
         pixel.style.border = "1px solid black";
         pixel.style.minWidth = "10px";
