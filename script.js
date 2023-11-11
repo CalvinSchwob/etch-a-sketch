@@ -1,7 +1,10 @@
 let pixelContainer = document.querySelector(".pixelContainer");
+let pixel = document.querySelector("pixelContainer.pixel");
+setPixel();
 
 
-function setPixel (pixel) {
+
+function setPixel (pixel = 8) {
 
     clearPixelContainer();
     pixelContainer.style.gridTemplateColumns = `repeat(${pixel}, auto`;
@@ -9,11 +12,9 @@ function setPixel (pixel) {
 
     for (let i = 0; i < pixel * pixel; i++) {
         let pixel = document.createElement("div");
-        pixel.style.border = "1px solid black";
-        // pixel.style.minWidth = "10px";
-        // pixel.style.minHeight = "10px";
-        // // pixel.style.aspectRatio = "1/1";
-
+        pixel.style.border = "1px solid lightgrey";
+        pixel.className = "pixel";
+        pixel.addEventListener(`click`, paintPixel)
         pixelContainer.appendChild(pixel);
     }
 }
@@ -22,4 +23,8 @@ function clearPixelContainer () {
     while (pixelContainer.firstChild) {
         pixelContainer.removeChild(pixelContainer.firstChild);
     }
+}
+
+function paintPixel () {
+    pixel.style.backgroundColor = "black";
 }
