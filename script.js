@@ -12,7 +12,7 @@ function setPixel (pixel = 8) {
 
     for (let i = 0; i < pixel * pixel; i++) {
         let pixel = document.createElement("div");
-        pixel.style.border = "1px solid lightgrey";
+        pixel.style.border = "0px solid white";
         pixel.className = "pixel";
         pixel.addEventListener("mouseover", () => {
             pixel.style.backgroundColor += "black"
@@ -27,10 +27,6 @@ function clearPixelContainer () {
     }
 }
 
-// function paintPixel () {
-//     pixel.style.backgroundColor += "#0000";
-// }
-
 //Apply Button function:
 let applyButton = document.querySelector("button");
 let inputField = document.querySelector("input");
@@ -39,4 +35,8 @@ let inputValue = 0;
 applyButton.addEventListener ("click", () => {
     inputValue = inputField.value;
     setPixel(inputValue);
+    inputField.focus();
+    inputField.textContent = "";
 });
+
+inputField.focus();
